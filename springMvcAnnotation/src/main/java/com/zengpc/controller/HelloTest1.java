@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 public class HelloTest1 {
 
     @RequestMapping(value = "test")
-    public void test(HttpServletRequest request, HttpServletResponse response, Model model){
-
+    public String test(String name,HttpServletRequest request, HttpServletResponse response, Model model){
+        model.addAttribute("msg",name);
+        return "test";
     }
 }
