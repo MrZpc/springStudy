@@ -19,18 +19,17 @@
  <!--   <bean:annotation-config/>
     <aop:aspectj-autoproxy/>-->
 
-    <context:component-scan base-package="com.zengpc.service" ><!-- 如果多个，用“,”分隔 -->
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
-    </context:component-scan>
+
+    <context:component-scan base-package="com.zengpc.service" />
 
 
-    <!--声明式事务配置-->
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <!--注入数据源-->
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
+<!--    &lt;!&ndash;声明式事务配置&ndash;&gt;-->
+<!--    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+<!--        &lt;!&ndash;注入数据源&ndash;&gt;-->
+<!--        <property name="dataSource" ref="dataSource"/>-->
+<!--    </bean>-->
 
-    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+<!--    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>-->
 
     <!--  &lt;!&ndash;结合AOP实现事务的织入&ndash;&gt;
       <tx:advice id="transactionInterceptor" transaction-manager="transactionManager">
