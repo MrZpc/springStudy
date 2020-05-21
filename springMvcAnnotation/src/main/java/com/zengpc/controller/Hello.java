@@ -1,5 +1,7 @@
 package com.zengpc.controller;
 
+import com.zengpc.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 @RequestMapping(value = "/hello")
 public class Hello  {
+
 
     @RequestMapping(value = "test/{a}/{b}")
     public String hello(@PathVariable int a,@PathVariable int b, Model model){

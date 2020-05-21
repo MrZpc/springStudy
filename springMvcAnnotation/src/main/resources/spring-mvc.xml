@@ -22,9 +22,15 @@
 
     <description>Spring MVC Configuration</description>
 
+    <!-- 加载配置属性文件 -->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:sys.properties"/>
+    <!--<bean:annotation-config/>
+    <aop:aspectj-autoproxy/>-->
 
-    <!-- 自动扫描包，让指定包下的注解生效，由ioc容器统一管理-->
-    <context:component-scan base-package="com.zengpc.controller"/>
+    <!-- 自动扫描包，让指定包下的注解生效，由ioc容器统一管理 只扫描@Controller-->
+    <context:component-scan base-package="com.zengpc.controller" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
     <!-- 让springmvc不处理静态资源  js等-->
     <mvc:default-servlet-handler/>
     <!--
@@ -50,6 +56,5 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!--    <bean id="/hello" class="com.zengpc.controller.Hello"/>-->
 
 </beans>
